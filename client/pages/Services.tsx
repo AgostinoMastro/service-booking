@@ -20,7 +20,7 @@ import {
   ArrowLeft,
   Car,
   Truck,
-  Motorcycle,
+  Bike,
   Shield,
   Star,
   CreditCard,
@@ -43,7 +43,7 @@ export default function Services() {
     { id: "suv", name: "SUV/Crossover", icon: Car, multiplier: 1.3 },
     { id: "truck", name: "Pickup Truck", icon: Truck, multiplier: 1.5 },
     { id: "luxury", name: "Luxury Vehicle", icon: Car, multiplier: 1.4 },
-    { id: "motorcycle", name: "Motorcycle", icon: Motorcycle, multiplier: 0.6 },
+    { id: "motorcycle", name: "Motorcycle", icon: Bike, multiplier: 0.6 },
   ];
 
   const services = [
