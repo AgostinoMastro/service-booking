@@ -221,17 +221,6 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
             </div>
           </TabsContent>
         </Tabs>
-
-        <Separator />
-
-        <div className="space-y-2">
-          <Button variant="outline" className="w-full">
-            Continue with Google
-          </Button>
-          <Button variant="outline" className="w-full">
-            Continue with Apple
-          </Button>
-        </div>
       </DialogContent>
     </Dialog>
   );
