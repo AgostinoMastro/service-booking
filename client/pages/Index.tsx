@@ -9,8 +9,12 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Zap, Shield, Star, Calendar, User, CreditCard } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { AuthDialog } from "@/components/AuthDialog";
 
 export default function Index() {
+  const [isAuthDialogOpen, setIsAuthDialogOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
@@ -30,7 +34,11 @@ export default function Index() {
                   Profile
                 </Button>
               </Link>
-              <Button size="sm" className="bg-primary hover:bg-primary/90">
+              <Button
+                size="sm"
+                className="bg-primary hover:bg-primary/90"
+                onClick={() => setIsAuthDialogOpen(true)}
+              >
                 Sign In
               </Button>
             </div>
@@ -234,6 +242,8 @@ export default function Index() {
           </Link>
         </div>
       </nav>
+
+      <AuthDialog open={isAuthDialogOpen} onOpenChange={setIsAuthDialogOpen} />
     </div>
   );
 }
