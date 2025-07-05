@@ -6,6 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -19,6 +20,7 @@ interface AuthDialogProps {
 }
 
 export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
+  const { signIn } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,26 +31,35 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      setIsLoading(false);
+    try {
+      await signIn(email, password);
       onOpenChange(false);
-      // In a real app, you'd handle authentication here
-      alert("Sign in successful! (Demo)");
-    }, 1000);
+      // Reset form
+      setEmail("");
+      setPassword("");
+    } catch (error) {
+      console.error("Sign in failed:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      setIsLoading(false);
+    try {
+      await signIn(email, password, name);
       onOpenChange(false);
-      // In a real app, you'd handle registration here
-      alert("Account created successfully! (Demo)");
-    }, 1000);
+      // Reset form
+      setEmail("");
+      setPassword("");
+      setName("");
+    } catch (error) {
+      console.error("Sign up failed:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

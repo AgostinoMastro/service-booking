@@ -7,12 +7,22 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Zap, Shield, Star, Calendar, User, CreditCard } from "lucide-react";
+import {
+  Zap,
+  Shield,
+  Star,
+  Calendar,
+  User,
+  CreditCard,
+  LogOut,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { AuthDialog } from "@/components/AuthDialog";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function Index() {
+  const { user, isAuthenticated, signOut } = useAuth();
   const [isAuthDialogOpen, setIsAuthDialogOpen] = useState(false);
 
   return (
@@ -28,19 +38,43 @@ export default function Index() {
               <h1 className="text-xl font-bold">wash o clock</h1>
             </div>
             <div className="flex items-center space-x-4">
-              <Link to="/profile">
-                <Button variant="ghost" size="sm">
-                  <User className="w-4 h-4 mr-2" />
-                  Profile
-                </Button>
-              </Link>
-              <Button
-                size="sm"
-                className="bg-primary hover:bg-primary/90"
-                onClick={() => setIsAuthDialogOpen(true)}
-              >
-                Sign In
-              </Button>
+              {isAuthenticated ? (
+                <>
+                  <div className="flex items-center space-x-2 text-sm">
+                    <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                      <User className="w-4 h-4 text-accent" />
+                    </div>
+                    <span className="hidden sm:block">
+                      Welcome, {user?.name}
+                    </span>
+                  </div>
+                  <Link to="/profile">
+                    <Button variant="ghost" size="sm">
+                      Profile
+                    </Button>
+                  </Link>
+                  <Button variant="ghost" size="sm" onClick={signOut}>
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Sign Out
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Link to="/profile">
+                    <Button variant="ghost" size="sm">
+                      <User className="w-4 h-4 mr-2" />
+                      Profile
+                    </Button>
+                  </Link>
+                  <Button
+                    size="sm"
+                    className="bg-primary hover:bg-primary/90"
+                    onClick={() => setIsAuthDialogOpen(true)}
+                  >
+                    Sign In
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         </div>
