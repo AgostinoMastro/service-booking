@@ -32,10 +32,11 @@ export default function Index() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <Zap className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <h1 className="text-xl font-bold">wash o clock</h1>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F085a9b05759146b484dc56707545fc78%2F66187e514b454aaba95efd57460a2212?format=webp&width=800"
+                alt="wash o clock logo"
+                className="h-10 w-auto"
+              />
             </div>
             <div className="flex items-center space-x-4">
               {isAuthenticated ? (
@@ -243,7 +244,11 @@ export default function Index() {
             className="flex flex-col items-center space-y-1 text-accent"
           >
             <div className="w-6 h-6 flex items-center justify-center">
-              <Zap className="w-5 h-5" />
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F085a9b05759146b484dc56707545fc78%2F66187e514b454aaba95efd57460a2212?format=webp&width=800"
+                alt="wash o clock"
+                className="h-5 w-auto"
+              />
             </div>
             <span className="text-xs">Home</span>
           </Link>
