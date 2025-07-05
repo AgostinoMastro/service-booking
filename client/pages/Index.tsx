@@ -21,7 +21,7 @@ export default function Index() {
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                 <Zap className="w-5 h-5 text-primary-foreground" />
               </div>
-              <h1 className="text-xl font-bold">LuxeDetail</h1>
+              <h1 className="text-xl font-bold">wash o clock</h1>
             </div>
             <div className="flex items-center space-x-4">
               <Link to="/profile">
@@ -157,7 +157,7 @@ export default function Index() {
       {/* Features */}
       <section className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h3 className="text-3xl font-bold mb-4">Why Choose LuxeDetail</h3>
+          <h3 className="text-3xl font-bold mb-4">Why Choose wash o clock</h3>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
