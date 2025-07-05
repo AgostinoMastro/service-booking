@@ -159,14 +159,12 @@ export default function Services() {
                       <vehicle.icon className="w-8 h-8 text-accent" />
                     </div>
                     <CardTitle className="text-lg">{vehicle.name}</CardTitle>
-                    <CardDescription>
-                      {vehicle.multiplier !== 1.0 && (
-                        <Badge variant="secondary" className="mt-2">
-                          {vehicle.multiplier > 1 ? "+" : ""}
-                          {Math.round((vehicle.multiplier - 1) * 100)}% pricing
-                        </Badge>
-                      )}
-                    </CardDescription>
+                    {vehicle.multiplier !== 1.0 && (
+                      <Badge variant="secondary" className="mt-2">
+                        {vehicle.multiplier > 1 ? "+" : ""}
+                        {Math.round((vehicle.multiplier - 1) * 100)}% pricing
+                      </Badge>
+                    )}
                   </CardHeader>
                 </Card>
               ))}
